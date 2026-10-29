@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Sift Dimension Coming to Minecraft in 2027 | MrAG</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .post-page {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 1.5rem 4rem;
+      min-height: 100vh;
+    }
+    .post-container {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover {
+      color: var(--yellow);
+    }
+    .post-header {
+      margin-bottom: 1.5rem;
+    }
+    .post-header .date {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .post-header h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.8rem, 5vw, 2.5rem);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .post-badge {
+      display: inline-block;
+      background: #22c55e;
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    .post-image {
+      margin-bottom: 1.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(0,0,0,0.45);
+      border: 2px solid rgba(255,214,10,0.2);
+    }
+    .post-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .post-body {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem 2.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+      line-height: 1.75;
+      font-size: 1.08rem;
+    }
+    .post-body p {
+      margin-bottom: 1.3rem;
+      color: var(--text);
+    }
+    .post-body h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.4rem;
+      color: var(--yellow);
+      margin: 2rem 0 0.8rem;
+    }
+    .post-body ul {
+      margin: 0.8rem 0 1.5rem 1.4rem;
+      color: var(--text-muted);
+    }
+    .post-body li {
+      margin-bottom: 0.5rem;
+    }
+    .post-body strong {
+      color: var(--yellow);
+    }
+    .cta-box {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(34,197,94,0.12), rgba(255,214,10,0.1));
+      border-radius: 12px;
+      border: 1px solid rgba(34,197,94,0.3);
+      text-align: center;
+    }
+    .cta-box p {
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .comments-section {
+      margin-top: 3rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+    }
+    .comments-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 1.4rem;
+      color: var(--yellow);
+    }
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .comment-form input,
+    .comment-form textarea {
+      background: var(--darker);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+    }
+    .comment-form input:focus,
+    .comment-form textarea:focus {
+      border-color: var(--blue);
+    }
+    .comment-form button {
+      align-self: flex-start;
+    }
+    .comments-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .comment-item {
+      background: var(--darker);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--blue);
+    }
+    .comment-item .c-name {
+      font-weight: 700;
+      color: var(--yellow);
+      margin-bottom: 0.25rem;
+    }
+    .comment-item .c-date {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .comment-item .c-text {
+      color: var(--text);
+      white-space: pre-wrap;
+      line-height: 1.5;
+    }
+    .no-comments {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <span class="logo-text">Mr<span class="logo-crown">👑</span>AG</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#home">Home</a></li>
+        <li><a href="index.html#updates">Updates</a></li>
+        <li><a href="index.html#about">About</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="post-page" data-post-id="sift-dimension">
+    <div class="post-container">
+      <a href="index.html#updates" class="back-link">← Back to Updates</a>
+
+      <article>
+        <div class="post-header">
+          <span class="post-badge">MINECRAFT NEWS</span>
+          <div class="date">October 20, 2026</div>
+          <h1>✨ The Sift – Minecraft’s First New Dimension in 14 Years!</h1>
+        </div>
+
+        <div class="post-image">
+          <img src="sift-news.jpg" alt="New Sift Dimension revealed for Minecraft" />
+        </div>
+
+        <div class="post-body">
+          <p>Hey everyone, <strong>MrAG</strong> here with some huge Minecraft news!</p>
+
+          <p>After more than <strong>14 years</strong>, Minecraft is finally getting its first official brand-new dimension. It’s called <strong>The Sift</strong>, and it’s coming to both Java and Bedrock Edition in <strong>2027</strong>.</p>
+
+          <p>This is a massive moment for the game. The last time we got a completely new dimension was the End… and that was way back in 2011. Now Mojang is opening a whole new world for us to explore.</p>
+
+          <h2>Key Details</h2>
+          <ul>
+            <li><strong>Name:</strong> The Sift</li>
+            <li><strong>First new official dimension</strong> in over 14 years</li>
+            <li>Coming to <strong>Minecraft Java & Bedrock Edition in 2027</strong></li>
+            <li>Will debut earlier in <strong>Minecraft Dungeons II on September 29, 2026</strong></li>
+          </ul>
+
+          <div class="post-image" style="margin: 1.8rem 0;">
+            <img src="sift-coming.jpg" alt="The Sift is coming to Minecraft" />
+          </div>
+
+          <p>From the first looks, The Sift features a vibrant, colorful world with unique creatures, pink landscapes, and a completely different vibe from the Overworld, Nether, or End. It looks bright, mysterious, and full of new things to discover.</p>
+
+          <p>Players will be able to experience parts of this dimension first in <strong>Minecraft Dungeons II</strong> when it launches on September 29, 2026 — giving us an early taste before it fully arrives in the main game in 2027.</p>
+
+          <p>This is easily one of the biggest Minecraft announcements in years. A whole new dimension means new biomes, new mobs, new blocks, new bosses… and of course, tons of new content for videos!</p>
+
+          <p>I’ll be covering everything about The Sift as more details drop — first looks, theories, and eventually full survival playthroughs when it releases. Make sure you’re subscribed so you don’t miss any of it!</p>
+
+          <div class="cta-box">
+            <p>The Sift is coming… are you ready?</p>
+            <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="btn btn-primary">Watch on MrAG YouTube</a>
+          </div>
+
+          <p style="margin-top: 2rem; color: var(--text-muted); font-size: 0.95rem;">
+            See you in The Sift.<br>
+            — <strong>MrAG</strong>
+          </p>
+        </div>
+      </article>
+
+      <!-- Comments Section -->
+      <div class="comments-section" id="commentsSection">
+        <h2 class="comments-title">💬 Comments</h2>
+        <form class="comment-form" id="commentForm">
+          <input type="text" id="commentName" placeholder="Your name" required maxlength="40" />
+          <textarea id="commentText" placeholder="Write a comment..." rows="3" required maxlength="500"></textarea>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+        <div class="comments-list" id="commentsList">
+          <!-- comments loaded by JS -->
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 MrAG • Made with 💛 for the community</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
