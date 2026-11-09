@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wobbly Life Now on Mobile + Crossplay! | MrAG</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    .post-page {
+      position: relative;
+      z-index: 1;
+      padding: 7rem 1.5rem 4rem;
+      min-height: 100vh;
+    }
+    .post-container { max-width: 780px; margin: 0 auto; }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: var(--accent-2);
+      text-decoration: none;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--yellow); }
+    .post-header { margin-bottom: 1.5rem; }
+    .post-header .date {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 0.6rem;
+    }
+    .post-header h1 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: clamp(1.7rem, 5vw, 2.4rem);
+      line-height: 1.25;
+      margin-bottom: 1rem;
+    }
+    .post-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      color: white;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    .post-image {
+      margin-bottom: 1.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 35px rgba(245, 158, 11, 0.25);
+      border: 2px solid rgba(255, 214, 10, 0.3);
+    }
+    .post-image img { width: 100%; height: auto; display: block; }
+    .post-body {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem 2.2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+      line-height: 1.75;
+      font-size: 1.08rem;
+    }
+    .post-body p { margin-bottom: 1.3rem; color: var(--text); }
+    .post-body h2 {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.35rem;
+      color: var(--yellow);
+      margin: 2rem 0 0.8rem;
+    }
+    .post-body ul {
+      margin: 0.8rem 0 1.5rem 1.4rem;
+      color: var(--muted);
+    }
+    .post-body li { margin-bottom: 0.55rem; }
+    .post-body strong { color: var(--yellow); }
+    .highlight-box {
+      margin: 1.8rem 0;
+      padding: 1.4rem 1.6rem;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.18), rgba(239, 68, 68, 0.12));
+      border-radius: 14px;
+      border: 2px solid rgba(245, 158, 11, 0.4);
+      text-align: center;
+    }
+    .highlight-box p {
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: #fbbf24;
+      letter-spacing: 0.5px;
+    }
+    .cta-box {
+      margin-top: 2.5rem;
+      padding: 1.5rem;
+      background: linear-gradient(135deg, rgba(245, 158, 11, 0.12), rgba(0, 180, 216, 0.1));
+      border-radius: 12px;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      text-align: center;
+    }
+    .cta-box p { margin-bottom: 1rem; font-weight: 600; }
+    .comments-section {
+      margin-top: 3rem;
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow: var(--shadow);
+    }
+    .comments-title {
+      font-family: 'Fredoka', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 1.4rem;
+      color: var(--yellow);
+    }
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .comment-form input,
+    .comment-form textarea {
+      background: var(--darker);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 10px;
+      padding: 0.8rem 1rem;
+      color: var(--text);
+      font-size: 1rem;
+      font-family: inherit;
+      outline: none;
+    }
+    .comment-form input:focus,
+    .comment-form textarea:focus { border-color: var(--accent-2); }
+    .comment-form button { align-self: flex-start; }
+    .comments-list { display: flex; flex-direction: column; gap: 1rem; }
+    .comment-item {
+      background: var(--darker);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border-left: 3px solid var(--accent-2);
+    }
+    .comment-item .c-name { font-weight: 700; color: var(--yellow); margin-bottom: 0.25rem; }
+    .comment-item .c-date { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.5rem; }
+    .comment-item .c-text { color: var(--text); white-space: pre-wrap; line-height: 1.5; }
+    .no-comments { color: var(--muted); font-style: italic; }
+  
+    :root {
+      --bg: #0e0f13;
+      --card: #1c1d24;
+      --line: #2a2b33;
+      --text: #f2f3f5;
+      --muted: #949ba4;
+      --accent: #5865f2;
+      --accent-2: #00d4ff;
+      --yellow: #fee75c;
+      --darker: #0a0b0e;
+    }
+    body {
+      background: var(--bg) !important;
+      color: var(--text);
+      font-family: Inter, "Segoe UI", system-ui, sans-serif;
+      margin: 0;
+    }
+    .stars { display: none !important; }
+    .navbar { display: none !important; }
+    .post-topbar {
+      position: sticky; top: 0; z-index: 50;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; padding: 12px 24px;
+      background: rgba(14,15,19,.95); backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .post-brand {
+      font-weight: 800; font-size: 1.15rem; color: var(--text); text-decoration: none;
+    }
+    .post-brand .crown { font-size: .9rem; }
+    .post-nav { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+    .post-nav a {
+      color: var(--muted); text-decoration: none; font-size: .85rem; font-weight: 600;
+    }
+    .post-nav a:hover { color: var(--text); }
+    .post-page {
+      position: relative; z-index: 1;
+      padding: 2rem 1.5rem 4rem !important;
+      min-height: 100vh;
+    }
+    .back-link { color: var(--accent-2) !important; }
+    .back-link:hover { color: var(--yellow) !important; }
+    .post-header .date { color: var(--muted) !important; }
+    .post-body {
+      background: var(--card) !important;
+      border: 1px solid var(--line) !important;
+    }
+    .post-body p { color: var(--text) !important; }
+    .post-body h2 { color: var(--yellow) !important; }
+    .post-body ul { color: var(--muted) !important; }
+    .post-body strong { color: var(--yellow) !important; }
+    .comments-section {
+      background: var(--card) !important;
+      border: 1px solid var(--line) !important;
+    }
+    .comments-title { color: var(--yellow) !important; }
+    .comment-form input, .comment-form textarea {
+      background: var(--darker) !important;
+      border: 1px solid var(--line) !important;
+      color: var(--text) !important;
+    }
+    .footer, footer.footer {
+      background: var(--bg) !important;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+    @media (max-width: 700px) {
+      .post-nav { display: none; }
+      .post-topbar { padding: 12px 16px; }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars" id="stars"></div>
+
+  <header class="post-topbar">
+    <a href="index.html" class="post-brand">Mr<span class="crown">👑</span>AG</a>
+    <nav class="post-nav">
+      <a href="index.html#home">Home</a>
+      <a href="index.html#updates">Updates</a>
+      <a href="index.html#games">Web Games</a>
+      <a href="index.html#play">Play With Us</a>
+      <a href="index.html#about">About</a>
+    </nav>
+  </header>
+<main class="post-page" data-post-id="wobbly-mobile">
+    <div class="post-container">
+      <a href="index.html#updates" class="back-link">← Back to Updates</a>
+
+      <article>
+        <div class="post-header">
+          <span class="post-badge">🔥 HUGE NEWS</span>
+          <div class="date">November 1, 2026</div>
+          <h1>🎉 Wobbly Life is NOW on Mobile — PC + Mobile Crossplay Enabled!</h1>
+        </div>
+
+        <div class="post-image">
+          <img src="wobbly-mobile.jpg" alt="Wobbly Life Now on Mobile - PC + Mobile Crossplay" />
+        </div>
+
+        <div class="post-body">
+          <p>What’s up everyone! <strong>MrAG</strong> here with massive news for all Wobbly Life fans.</p>
+
+          <p>The wait is over — <strong>Wobbly Life has officially launched on Mobile</strong>! And that’s not all…</p>
+
+          <div class="highlight-box">
+            <p>📱 + 💻 PC + MOBILE CROSSPLAY IS LIVE!</p>
+          </div>
+
+          <p>You can now play with your friends no matter what device they’re on. Phone, tablet, or PC — everyone can jump into the same wobbly world together.</p>
+
+          <h2>What’s new?</h2>
+          <ul>
+            <li><strong>Full Mobile release</strong> — play Wobbly Life on the go</li>
+            <li><strong>PC + Mobile Crossplay</strong> — party up across devices</li>
+            <li>Same crazy jobs, vehicles, and chaos you love</li>
+            <li>Perfect for playing with friends anytime, anywhere</li>
+          </ul>
+
+          <p>Whether you’re delivering pizzas, flying planes, or just causing maximum wobbly mayhem — you can now do it from your phone AND still play with your PC friends. This is a game-changer for the whole community.</p>
+
+          <p>I’ve already started making videos on the mobile version and crossplay sessions. Subscribe so you don’t miss the funny moments!</p>
+
+          <div class="cta-box">
+            <p>Ready to go full wobbly on mobile?</p>
+            <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="btn btn-primary">Watch on MrAG YouTube</a>
+          </div>
+
+          <p style="margin-top: 2rem; color: var(--muted); font-size: 0.95rem;">
+            Stay wobbly. Stay mobile. Stay chaotic.<br>
+            — <strong>MrAG</strong>
+          </p>
+        </div>
+      </article>
+
+      <div class="comments-section" id="commentsSection">
+        <h2 class="comments-title">💬 Comments</h2>
+        <form class="comment-form" id="commentForm">
+          <input type="text" id="commentName" placeholder="Your name" required maxlength="40" />
+          <textarea id="commentText" placeholder="Write a comment..." rows="3" required maxlength="500"></textarea>
+          <button type="submit" class="btn btn-primary">Post Comment</button>
+        </form>
+        <div class="comments-list" id="commentsList"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 MrAG • Made with 💛 for the community</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

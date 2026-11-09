@@ -3,204 +3,305 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MrAG | Wobbly Life & Gaming</title>
+  <title>MrAG | Gaming Hub</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Floating Stars Background -->
-  <div class="stars" id="stars"></div>
-
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="index.html" class="logo">
-        <span class="logo-text">Mr<span class="logo-crown">👑</span>AG</span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#updates">Updates</a></li>
-        <li><a href="#play">Play With Us</a></li>
-        <li><a href="#about">About</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <h1>Welcome to <span class="highlight">MrAG</span></h1>
-        <p class="tagline">Wobbly Life • Space Updates • Fun Gaming</p>
-        <p class="hero-desc">Latest news, updates and announcements from the channel — all in one place! 🚀</p>
-        <div class="hero-btns">
-          <a href="#updates" class="btn btn-primary">Latest Updates</a>
-          <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="btn btn-secondary">YouTube Channel</a>
+  <div class="app">
+    <!-- Discord-style left sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="logo.png" alt="MrAG" class="sidebar-logo-img" />
+        <div>
+          <div class="sidebar-title">MrAG</div>
+          <div class="sidebar-sub">Gaming Hub</div>
         </div>
       </div>
-      <div class="hero-character">
-        <div class="logo-hero">
-          <img src="logo.png" alt="MrAG Logo" class="hero-logo" />
-        </div>
-      </div>
-    </div>
-    <div class="wave">
-      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
-        <path d="M0,64 C360,120 720,0 1080,64 C1260,96 1380,80 1440,64 L1440,120 L0,120 Z" fill="#0f172a"></path>
-      </svg>
-    </div>
-  </section>
 
-  <!-- Updates Section -->
-  <section id="updates" class="section updates-section">
-    <div class="container">
-      <h2 class="section-title">📢 Channel Updates</h2>
-      <p class="section-subtitle">Latest news and announcements from MrAG</p>
-
-      <div class="updates-list" id="updatesList">
-        <!-- Post 4 - Best Bedrock Seed -->
-        <a href="post-best-bedrock-seed.html" target="_blank" class="update-card-link">
-          <div class="update-card">
-            <div class="update-meta">
-              <span class="badge-new">NEW</span>
-              <span class="date">November 1, 2026</span>
-            </div>
-            <h3>🔥 The Best Minecraft Bedrock Seed Ever</h3>
-            <div class="update-thumb">
-              <img src="seed-guide.jpg" alt="Best Minecraft Bedrock Seed" />
-            </div>
-            <p class="preview">Spawn in a village with 4 Blacksmiths, Stronghold right under it, Ruined Portal next door, Nether Fortress on entry, and Mushroom Islands nearby. Seed: 8718370463838351696</p>
-            <span class="read-more">Read full post →</span>
-          </div>
+      <nav class="sidebar-nav">
+        <a href="#home" class="nav-item active always-fx" data-section="home">
+          <span class="nav-icon">🏠</span> Home
         </a>
-
-        <!-- Post 3 - Hidden Chapter Coming Soon -->
-        <a href="post-hidden-chapter.html" target="_blank" class="update-card-link">
-          <div class="update-card">
-            <div class="update-meta">
-              <span class="badge-new">COMING SOON</span>
-              <span class="date">October 29, 2026</span>
-            </div>
-            <h3>🔮 My Creative World: The Hidden Chapter</h3>
-            <div class="update-thumb">
-              <img src="coming-soon-world.jpg" alt="Coming Soon - Hidden Chapter" />
-            </div>
-            <p class="preview">Something big is coming in early November 2026. A full creative world I’ve been building in secret is about to be revealed. The portal is almost open…</p>
-            <span class="read-more">Read full post →</span>
-          </div>
+        <a href="#updates" class="nav-item always-fx" data-section="updates">
+          <span class="nav-icon">📢</span> Updates
         </a>
-
-        <!-- Post 2 - Sift Dimension -->
-        <a href="post-sift-dimension.html" target="_blank" class="update-card-link">
-          <div class="update-card">
-            <div class="update-meta">
-              <span class="badge-new">NEW</span>
-              <span class="date">October 20, 2026</span>
-            </div>
-            <h3>✨ The Sift – Minecraft’s First New Dimension in 14 Years!</h3>
-            <div class="update-thumb">
-              <img src="sift-news.jpg" alt="The Sift Dimension" />
-            </div>
-            <p class="preview">Minecraft is getting its first official new dimension in over 14 years. The Sift arrives in 2027 for Java & Bedrock, and debuts earlier in Minecraft Dungeons II on Sept 29, 2026.</p>
-            <span class="read-more">Read full post →</span>
-          </div>
+        <a href="#games" class="nav-item always-fx" data-section="games">
+          <span class="nav-icon">🕹️</span> Web Games
         </a>
+        <a href="#play" class="nav-item always-fx" data-section="play">
+          <span class="nav-icon">🎮</span> Play With Us
+        </a>
+        <a href="#about" class="nav-item always-fx" data-section="about">
+          <span class="nav-icon">👋</span> About
+        </a>
+      </nav>
 
-        <!-- Post 1 - Space Update -->
-        <a href="post-space-update.html" target="_blank" class="update-card-link">
-          <div class="update-card">
-            <div class="update-meta">
-              <span class="badge-new">NEW</span>
-              <span class="date">October 20, 2026</span>
-            </div>
-            <h3>🚀 Wobbly Life Space Update is LIVE!</h3>
-            <div class="update-thumb">
-              <img src="space-update.jpg" alt="Space Update" />
-            </div>
-            <p class="preview">The biggest update yet has arrived! Explore space, pilot rockets, meet new characters and discover a whole new world beyond the clouds...</p>
-            <span class="read-more">Read full post →</span>
-          </div>
+      <div class="sidebar-footer">
+        <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="yt-btn">
+          ▶ YouTube Channel
         </a>
       </div>
-    </div>
-  </section>
+    </aside>
 
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <!-- Play With Us Section -->
-  <section id="play" class="section play-section">
-    <div class="container">
-      <h2 class="section-title">🎮 Play With Us</h2>
-      <p class="section-subtitle">Add us on Minecraft Bedrock &amp; let’s play together!</p>
+    <!-- Main content -->
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+        <div class="topbar-title" id="topbarTitle">Home</div>
+        <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="topbar-yt">YouTube</a>
+      </header>
 
-      <div class="players-grid">
-        <div class="player-card">
-          <div class="player-avatar">
-            <img src="face_vacant.png" alt="VacantCake4142" />
+      <div class="content">
+        <!-- HOME -->
+        <section id="home" class="panel panel-active">
+          <div class="hero-panel">
+            <div class="hero-left">
+              <p class="eyebrow">Welcome back</p>
+              <h1>Hey, I’m <span class="grad">MrAG</span></h1>
+              <p class="lead">Wobbly Life • Minecraft • Mini games — news, seeds, and fun in one place.</p>
+              <div class="hero-actions">
+                <a href="#updates" class="btn btn-primary">Latest Updates</a>
+                <a href="#games" class="btn btn-ghost">Play Web Games</a>
+              </div>
+            </div>
+            <div class="hero-right">
+              <img src="logo.png" alt="MrAG" class="hero-logo" />
+            </div>
           </div>
-          <h3 class="player-name">VacantCake4142</h3>
-          <p class="player-role">MrAG • Channel</p>
-          <p class="player-id">Minecraft ID</p>
-          <button class="copy-btn" onclick="copyId(this, 'VacantCake4142')">Copy ID</button>
-        </div>
 
-        <div class="player-card">
-          <div class="player-avatar">
-            <img src="face_pluto.png" alt="FixedPluto8747" />
+          <div class="quick-grid">
+            <a href="#updates" class="quick-card">
+              <span class="qc-icon">📢</span>
+              <span class="qc-title">Updates</span>
+              <span class="qc-desc">News & announcements</span>
+            </a>
+            <a href="#games" class="quick-card">
+              <span class="qc-icon">🕹️</span>
+              <span class="qc-title">Web Games</span>
+              <span class="qc-desc">11 neon mini-games</span>
+            </a>
+            <a href="#play" class="quick-card">
+              <span class="qc-icon">🎮</span>
+              <span class="qc-title">Play With Us</span>
+              <span class="qc-desc">Minecraft Bedrock IDs</span>
+            </a>
+            <a href="#about" class="quick-card">
+              <span class="qc-icon">👋</span>
+              <span class="qc-title">About</span>
+              <span class="qc-desc">Channel info</span>
+            </a>
           </div>
-          <h3 class="player-name">FixedPluto8747</h3>
-          <p class="player-role">Friend • Web Handler</p>
-          <p class="player-id">Minecraft ID</p>
-          <button class="copy-btn" onclick="copyId(this, 'FixedPluto8747')">Copy ID</button>
-        </div>
+        </section>
 
-        <div class="player-card">
-          <div class="player-avatar">
-            <img src="face_kingfly.png" alt="kingfly6672" />
+        <!-- UPDATES -->
+        <section id="updates" class="panel">
+          <div class="panel-head">
+            <h2>Channel Updates</h2>
+            <p>Latest news and announcements</p>
           </div>
-          <h3 class="player-name">kingfly6672</h3>
-          <p class="player-role">Friend • Web Handler</p>
-          <p class="player-id">Minecraft ID</p>
-          <button class="copy-btn" onclick="copyId(this, 'kingfly6672')">Copy ID</button>
-        </div>
+
+          <div class="updates-list">
+            <a href="post-wobbly-mobile.html" target="_blank" class="update-card-link">
+              <div class="update-card">
+                <div class="update-meta"><span class="badge-new">NEW</span><span class="date">Nov 1, 2026</span></div>
+                <h3>🎉 Wobbly Life is NOW on Mobile!</h3>
+                <div class="update-thumb"><img src="wobbly-mobile.jpg" alt="" /></div>
+                <p class="preview">Mobile launch + PC & Mobile Crossplay enabled.</p>
+                <span class="read-more">Read full post →</span>
+              </div>
+            </a>
+
+            <a href="post-best-bedrock-seed.html" target="_blank" class="update-card-link">
+              <div class="update-card">
+                <div class="update-meta"><span class="badge-new">NEW</span><span class="date">Nov 1, 2026</span></div>
+                <h3>🔥 The Best Minecraft Bedrock Seed Ever</h3>
+                <div class="update-thumb"><img src="seed-guide.jpg" alt="" /></div>
+                <p class="preview">Village spawn, 4 blacksmiths, stronghold, portal, fortress & mushroom islands. Seed: 8718370463838351696</p>
+                <span class="read-more">Read full post →</span>
+              </div>
+            </a>
+
+            <a href="post-hidden-chapter.html" target="_blank" class="update-card-link">
+              <div class="update-card">
+                <div class="update-meta"><span class="badge-soon">COMING SOON</span><span class="date">Oct 29, 2026</span></div>
+                <h3>🔮 My Creative World: The Hidden Chapter</h3>
+                <div class="update-thumb"><img src="coming-soon-world.jpg" alt="" /></div>
+                <p class="preview">A secret creative world reveal — early November 2026.</p>
+                <span class="read-more">Read full post →</span>
+              </div>
+            </a>
+
+            <a href="post-sift-dimension.html" target="_blank" class="update-card-link">
+              <div class="update-card">
+                <div class="update-meta"><span class="date">Oct 20, 2026</span></div>
+                <h3>✨ The Sift – Minecraft’s First New Dimension in 14 Years!</h3>
+                <div class="update-thumb"><img src="sift-news.jpg" alt="" /></div>
+                <p class="preview">Coming 2027 to Java & Bedrock; debuts in Minecraft Dungeons II on Sept 29, 2026.</p>
+                <span class="read-more">Read full post →</span>
+              </div>
+            </a>
+
+            <a href="post-space-update.html" target="_blank" class="update-card-link">
+              <div class="update-card">
+                <div class="update-meta"><span class="date">Oct 20, 2026</span></div>
+                <h3>🚀 Wobbly Life Space Update is LIVE!</h3>
+                <div class="update-thumb"><img src="space-update.jpg" alt="" /></div>
+                <p class="preview">Rockets, planets, new characters — explore space in Wobbly Life.</p>
+                <span class="read-more">Read full post →</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <!-- WEB GAMES — dark professional -->
+        <section id="games" class="panel">
+          <div class="panel-head games-head">
+            <div>
+              <h2>Web Games</h2>
+              <p>Browser mini-games · no install · scores saved locally</p>
+            </div>
+            <a href="neon-arcade.html" class="btn btn-primary" target="_blank">Open Full Arcade →</a>
+          </div>
+
+          <div class="arcade-hero" id="arcadeHero">
+            <div class="arcade-hero-text">
+              <span class="arcade-badge">NEON ARCADE</span>
+              <h3>11 games in one neon package</h3>
+              <p>Snake, 2048, Breakout, Tetris, Pong, Memory, Minesweeper, Flappy, Simon, Typing Defender, Whack-a-Mole — all in your browser.</p>
+              <a href="neon-arcade.html" class="btn btn-primary" target="_blank">Launch Arcade</a>
+            </div>
+            <div class="nameplate-deco" aria-hidden="true">
+              <div class="np-bar">
+                <span class="np-avatar">M</span>
+                <span class="np-name">MR_AG</span>
+                <span class="np-moth">
+                  <span class="wing wing-l"></span>
+                  <span class="wing wing-r"></span>
+                  <span class="moth-body"></span>
+                </span>
+              </div>
+            </div>
+            <div class="arcade-hero-glow"></div>
+            <div class="static-overlay"></div>
+          </div>
+
+          <div class="games-grid">
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#00d4ff">
+              <span class="g-ico">🐍</span>
+              <span class="g-name">Neon Snake</span>
+              <span class="g-desc">Wrap portals · rising speed</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#ffb454">
+              <span class="g-ico">🔢</span>
+              <span class="g-name">2048</span>
+              <span class="g-desc">Merge to the golden tile</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#ff5c7a">
+              <span class="g-ico">🧱</span>
+              <span class="g-name">Neon Breakout</span>
+              <span class="g-desc">Power-ups · multi-ball</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#7c5cff">
+              <span class="g-ico">⌨️</span>
+              <span class="g-name">Typing Defender</span>
+              <span class="g-desc">Type before words fall</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#3ddc84">
+              <span class="g-ico">🏓</span>
+              <span class="g-name">Neon Pong</span>
+              <span class="g-desc">First to 7 vs CPU</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#00d4ff">
+              <span class="g-ico">🃏</span>
+              <span class="g-name">Memory Match</span>
+              <span class="g-desc">Fewest moves wins</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#ff5c7a">
+              <span class="g-ico">💣</span>
+              <span class="g-name">Minesweeper</span>
+              <span class="g-desc">Clear the field safely</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#ffb454">
+              <span class="g-ico">🐦</span>
+              <span class="g-name">Neon Flap</span>
+              <span class="g-desc">One button · infinite pipes</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#7c5cff">
+              <span class="g-ico">🧩</span>
+              <span class="g-name">Neon Blocks</span>
+              <span class="g-desc">Tetris-style stack & clear</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#3ddc84">
+              <span class="g-ico">🎵</span>
+              <span class="g-name">Simon Says</span>
+              <span class="g-desc">Repeat the pattern</span>
+            </a>
+            <a href="neon-arcade.html" target="_blank" class="game-card" style="--g:#00d4ff">
+              <span class="g-ico">🔨</span>
+              <span class="g-name">Whack-a-Mole</span>
+              <span class="g-desc">30 seconds · golden moles</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- PLAY WITH US -->
+        <section id="play" class="panel">
+          <div class="panel-head">
+            <h2>Play With Us</h2>
+            <p>Add us on Minecraft Bedrock</p>
+          </div>
+          <div class="players-grid">
+            <div class="player-card">
+              <div class="player-avatar"><img src="face_vacant.png" alt="" /></div>
+              <h3 class="player-name">VacantCake4142</h3>
+              <p class="player-role">MrAG • Channel</p>
+              <button class="copy-btn" onclick="copyId(this, 'VacantCake4142')">Copy ID</button>
+            </div>
+            <div class="player-card">
+              <div class="player-avatar"><img src="face_pluto.png" alt="" /></div>
+              <h3 class="player-name">FixedPluto8747</h3>
+              <p class="player-role">Friend • Web Handler</p>
+              <button class="copy-btn" onclick="copyId(this, 'FixedPluto8747')">Copy ID</button>
+            </div>
+            <div class="player-card">
+              <div class="player-avatar"><img src="face_kingfly.png" alt="" /></div>
+              <h3 class="player-name">kingfly6672</h3>
+              <p class="player-role">Friend • Web Handler</p>
+              <button class="copy-btn" onclick="copyId(this, 'kingfly6672')">Copy ID</button>
+            </div>
+          </div>
+          <p class="play-note">Search these usernames in Minecraft Bedrock friends / invite list.</p>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" class="panel">
+          <div class="panel-head">
+            <h2>About MrAG</h2>
+            <p>Channel & community</p>
+          </div>
+          <div class="about-row">
+            <div class="about-text">
+              <p>I’m <strong>MrAG</strong> — Wobbly Life, Minecraft, funny moments, and gaming content.</p>
+              <p>This site is where I post updates, seeds, and browser games for the community.</p>
+              <div class="hero-actions" style="margin-top:1.2rem">
+                <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="btn btn-primary">YouTube Channel</a>
+              </div>
+            </div>
+            <img src="logo.png" alt="MrAG" class="about-logo" />
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          © 2026 MrAG · Built for the community
+        </footer>
       </div>
-
-      <p class="play-note">Search these usernames in Minecraft Bedrock friends / invite list and send a request!</p>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <h2 class="section-title">👋 About MrAG</h2>
-      <div class="about-content">
-        <div class="about-text">
-          <p>Hey! I'm <strong>MrAG</strong> — I make fun Wobbly Life videos, funny moments, and gaming content.</p>
-          <p>The Space Update is finally here, so get ready for rockets, planets, new characters and tons of wobbly adventures! 🚀</p>
-          <p>Subscribe to the channel and never miss a new video.</p>
-          <div class="social-links">
-            <a href="https://www.youtube.com/channel/UCVmaqsWX8SFFUA2DObU6sYA" target="_blank" class="social-btn youtube">YouTube</a>
-            <a href="#" class="social-btn instagram">Instagram</a>
-            <a href="#" class="social-btn discord">Discord</a>
-          </div>
-        </div>
-        <div class="about-character">
-          <img src="logo.png" alt="MrAG Logo" class="about-logo" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <p>© 2026 MrAG • Made with 💛 for Wobbly Life fans</p>
-    </div>
-  </footer>
+  </div>
 
   <script src="script.js"></script>
 </body>
