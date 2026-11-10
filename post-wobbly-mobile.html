@@ -162,6 +162,8 @@
       --darker: #0a0b0e;
     }
     body {
+      overflow-x: hidden;
+      overflow-y: auto !important;
       background: var(--bg) !important;
       color: var(--text);
       font-family: Inter, "Segoe UI", system-ui, sans-serif;
@@ -248,7 +250,7 @@
         </div>
 
         <div class="post-image">
-          <img src="wobbly-mobile.jpg" alt="Wobbly Life Now on Mobile - PC + Mobile Crossplay" />
+          <img loading="lazy" decoding="async" src="wobbly-mobile.jpg" alt="Wobbly Life Now on Mobile - PC + Mobile Crossplay" />
         </div>
 
         <div class="post-body">

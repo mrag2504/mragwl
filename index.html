@@ -4,12 +4,35 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MrAG | Gaming Hub</title>
+    <style>
+    /* critical: show MC loader before CSS file arrives */
+    #mcLoader{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+      background:linear-gradient(180deg,#1a2a1a,#0a100c);font-family:system-ui,sans-serif}
+    #mcLoader.mc-done{opacity:0;visibility:hidden;pointer-events:none;transition:opacity .55s}
+    body.mc-loading{overflow:hidden}
+  </style>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Minecraft-style page loader (real progress until ready) -->
+  <div id="mcLoader" class="mc-loader" aria-live="polite" aria-busy="true">
+    <div class="mc-loader-inner">
+      <div class="mc-title">MrAG</div>
+      <div class="mc-edition">GAMING HUB</div>
+      <div class="mc-status" id="mcStatus">Initializing server</div>
+      <div class="mc-bar-wrap">
+        <div class="mc-bar" id="mcBar"></div>
+      </div>
+      <div class="mc-percent" id="mcPercent">0%</div>
+      <div class="mc-tip" id="mcTip">Loading spawn area…</div>
+    </div>
+  </div>
+
+
   <div class="app">
     <!-- Discord-style left sidebar -->
     <aside class="sidebar" id="sidebar">
@@ -110,7 +133,7 @@
               <div class="update-card">
                 <div class="update-meta"><span class="badge-new">NEW</span><span class="date">Nov 1, 2026</span></div>
                 <h3>🎉 Wobbly Life is NOW on Mobile!</h3>
-                <div class="update-thumb"><img src="wobbly-mobile.jpg" alt="" /></div>
+                <div class="update-thumb"><img loading="lazy" decoding="async" src="wobbly-mobile.jpg" alt="" /></div>
                 <p class="preview">Mobile launch + PC & Mobile Crossplay enabled.</p>
                 <span class="read-more">Read full post →</span>
               </div>
@@ -120,7 +143,7 @@
               <div class="update-card">
                 <div class="update-meta"><span class="badge-new">NEW</span><span class="date">Nov 1, 2026</span></div>
                 <h3>🔥 The Best Minecraft Bedrock Seed Ever</h3>
-                <div class="update-thumb"><img src="seed-guide.jpg" alt="" /></div>
+                <div class="update-thumb"><img loading="lazy" decoding="async" src="seed-guide.jpg" alt="" /></div>
                 <p class="preview">Village spawn, 4 blacksmiths, stronghold, portal, fortress & mushroom islands. Seed: 8718370463838351696</p>
                 <span class="read-more">Read full post →</span>
               </div>
@@ -130,7 +153,7 @@
               <div class="update-card">
                 <div class="update-meta"><span class="badge-soon">COMING SOON</span><span class="date">Oct 29, 2026</span></div>
                 <h3>🔮 My Creative World: The Hidden Chapter</h3>
-                <div class="update-thumb"><img src="coming-soon-world.jpg" alt="" /></div>
+                <div class="update-thumb"><img loading="lazy" decoding="async" src="coming-soon-world.jpg" alt="" /></div>
                 <p class="preview">A secret creative world reveal — early November 2026.</p>
                 <span class="read-more">Read full post →</span>
               </div>
@@ -140,7 +163,7 @@
               <div class="update-card">
                 <div class="update-meta"><span class="date">Oct 20, 2026</span></div>
                 <h3>✨ The Sift – Minecraft’s First New Dimension in 14 Years!</h3>
-                <div class="update-thumb"><img src="sift-news.jpg" alt="" /></div>
+                <div class="update-thumb"><img loading="lazy" decoding="async" src="sift-news.jpg" alt="" /></div>
                 <p class="preview">Coming 2027 to Java & Bedrock; debuts in Minecraft Dungeons II on Sept 29, 2026.</p>
                 <span class="read-more">Read full post →</span>
               </div>
@@ -150,7 +173,7 @@
               <div class="update-card">
                 <div class="update-meta"><span class="date">Oct 20, 2026</span></div>
                 <h3>🚀 Wobbly Life Space Update is LIVE!</h3>
-                <div class="update-thumb"><img src="space-update.jpg" alt="" /></div>
+                <div class="update-thumb"><img loading="lazy" decoding="async" src="space-update.jpg" alt="" /></div>
                 <p class="preview">Rockets, planets, new characters — explore space in Wobbly Life.</p>
                 <span class="read-more">Read full post →</span>
               </div>
@@ -257,19 +280,19 @@
           </div>
           <div class="players-grid">
             <div class="player-card">
-              <div class="player-avatar"><img src="face_vacant.png" alt="" /></div>
+              <div class="player-avatar"><img loading="lazy" decoding="async" src="face_vacant.png" alt="" /></div>
               <h3 class="player-name">VacantCake4142</h3>
               <p class="player-role">MrAG • Channel</p>
               <button class="copy-btn" onclick="copyId(this, 'VacantCake4142')">Copy ID</button>
             </div>
             <div class="player-card">
-              <div class="player-avatar"><img src="face_pluto.png" alt="" /></div>
+              <div class="player-avatar"><img loading="lazy" decoding="async" src="face_pluto.png" alt="" /></div>
               <h3 class="player-name">FixedPluto8747</h3>
               <p class="player-role">Friend • Web Handler</p>
               <button class="copy-btn" onclick="copyId(this, 'FixedPluto8747')">Copy ID</button>
             </div>
             <div class="player-card">
-              <div class="player-avatar"><img src="face_kingfly.png" alt="" /></div>
+              <div class="player-avatar"><img loading="lazy" decoding="async" src="face_kingfly.png" alt="" /></div>
               <h3 class="player-name">kingfly6672</h3>
               <p class="player-role">Friend • Web Handler</p>
               <button class="copy-btn" onclick="copyId(this, 'kingfly6672')">Copy ID</button>

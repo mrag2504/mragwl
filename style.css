@@ -550,3 +550,94 @@ a { color: inherit; text-decoration: none; }
 .nav-item[data-section="games"]::after{opacity:.95!important;animation:ag-lightning-flicker .38s steps(2,end) infinite,ag-lightning-travel 1.1s linear infinite!important;}
 .nav-item[data-section="games"] .nav-icon{filter:drop-shadow(0 0 5px #ff3159) drop-shadow(0 0 10px #ff174d);animation:ag-icon-zap .55s ease-in-out infinite alternate;}
 @media(prefers-reduced-motion:reduce){.nav-item[data-section]::before,.nav-item[data-section]::after,.nav-item[data-section] .nav-icon,.nav-item[data-section="games"]{animation:none!important}}
+
+/* ========== Minecraft-style page loader ========== */
+.mc-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse at 50% 30%, rgba(40, 80, 40, 0.35), transparent 55%),
+    linear-gradient(180deg, #1a2a1a 0%, #0d1510 50%, #0a100c 100%);
+  transition: opacity 0.55s ease, visibility 0.55s ease;
+}
+.mc-loader.mc-done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.mc-loader-inner {
+  width: min(420px, 90vw);
+  text-align: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.mc-title {
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: #fff;
+  text-shadow:
+    3px 3px 0 #3f3f3f,
+    0 0 20px rgba(0, 0, 0, 0.5);
+  margin-bottom: 2px;
+}
+.mc-edition {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: #c6c6c6;
+  margin-bottom: 28px;
+}
+.mc-status {
+  color: #e0e0e0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 14px;
+  text-shadow: 1px 1px 0 #000;
+}
+.mc-bar-wrap {
+  height: 18px;
+  background: #373737;
+  border: 3px solid #000;
+  box-shadow: inset 0 0 0 1px #555;
+  position: relative;
+  overflow: hidden;
+}
+.mc-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(180deg, #b5ff5a 0%, #5ecf00 45%, #3a9e00 100%);
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.35), inset 0 -2px 0 rgba(0,0,0,0.25);
+  transition: width 0.15s linear;
+}
+.mc-percent {
+  margin-top: 8px;
+  font-size: 0.8rem;
+  color: #9e9e9e;
+  font-variant-numeric: tabular-nums;
+}
+.mc-tip {
+  margin-top: 22px;
+  padding: 12px 14px;
+  background: rgba(30, 30, 30, 0.92);
+  border: 2px solid #1a1a1a;
+  box-shadow: inset 0 0 0 1px #4a4a4a;
+  color: #c8c8c8;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  text-align: left;
+  min-height: 3.2em;
+}
+body.mc-loading {
+  overflow: hidden;
+}
+
+
+/* post page scroll fix — never lock body on posts */
+body:not(.mc-loading) {
+  overflow-x: hidden;
+  overflow-y: auto !important;
+}
